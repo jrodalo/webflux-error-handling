@@ -10,4 +10,8 @@ public final class HttpNotFound extends HttpError {
     public static HttpNotFound fromKnownError(KnownError error) {
         return new HttpNotFound(error.getMessage(), error.getType());
     }
+
+    public static HttpNotFound because(String reason) {
+        return new HttpNotFound(reason, ErrorType.INVALID_REQUEST);
+    }
 }
